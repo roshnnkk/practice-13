@@ -1,0 +1,21 @@
+body {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  color: $text_color ;
+}

@@ -2,3 +2,13 @@
   border-radius: 5px;
   border: 1px solid $text_color;
 }
+
+
+@mixin media {
+  @media screen and (max-width:1256px){
+    .wrapper .right-box{
+      display: none;
+    }
+    
+  }
+}

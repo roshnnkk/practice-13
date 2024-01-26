@@ -1,4 +1,6 @@
-*, ::after, ::before {
+*,
+::after,
+::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -17,9 +19,12 @@ button {
   font-weight: 700;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
   letter-spacing: 0.2rem;
+  color: #614124;
 }
 
 .wrapper {
@@ -70,20 +75,19 @@ h1, h2, h3 {
   width: 70%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 0 10px;
+  padding: 20px 20px;
   grid-gap: 4rem;
 }
 .container-lists .item {
   width: 100%;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30% calc(100% - 30% - 10px);
   grid-template-rows: 150px;
   align-items: center;
 }
 .container-lists .item > img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -95,6 +99,7 @@ h1, h2, h3 {
 }
 .item-desc .food-more {
   padding-top: 1rem;
+  line-height: 1.3;
 }
 .item-desc > .top-item {
   display: flex;
@@ -102,4 +107,30 @@ h1, h2, h3 {
   align-items: center;
   border-bottom: 1px solid #614124;
   padding-bottom: 0.2rem;
+}
+
+
+@media screen and (max-width:1256px){
+  .wrapper .right-box{
+    display: none;
+  }
+  .container-btn{
+    width: 100%;
+  }
+  .container-lists{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .container-lists{
+    grid-template-columns: 100%;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .container-btn{
+    flex-wrap: wrap;
+  }
+  
 }

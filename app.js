@@ -46,7 +46,8 @@ const menu = [
     category: "lunch",
     price: 12.25,
     img: "./assets/6.jpg",
-    dec: "This poached rutabaga quesadilla is a bit tough with a sticky texture."},
+    dec: "This poached rutabaga quesadilla is a bit tough with a sticky texture.",
+  },
   {
     id: 7,
     title: "chicken",
@@ -79,30 +80,31 @@ const menu = [
     img: "./assets/10.jpg",
     dec: "This sauteed raspberries eggroll is scarcely crispy with a crispy texture..",
   },
+
+  {
+    id: 11,
+    title: "chocolate shake",
+    category: "shakes",
+    price: 20.25,
+    img: "./assets/11.jpg",
+    dec: "This sauteed raspberries eggroll is scarcely crispy with a crispy texture..",
+  },
+
+  {
+    id: 12,
+    title: "baby shake",
+    category: "shakes",
+    price: 22.25,
+    img: "./assets/12.jpg",
+    dec: "This sauteed raspberries eggroll is scarcely crispy with a crispy texture..",
+  },
 ];
 
-function addCategoryButtons() {
-  let categoryLists = ["all"];
-  menu.forEach(function (item) {
-    if (item && item.category && !categoryLists.includes(item.category)) {
-      categoryLists.push(item.category);
-    }
-  });
-
-  const buttons = categoryLists.map(
-    (cat) => `<button class="button" type="button">${cat}</button>`
-  );
-
-  if (buttons.length > 0) {
-    document.getElementById("menu-categories").innerHTML = buttons.join(" ");
-  }
-}
-
-function addMenuLists() {
-   
-  document.getElementById("menu-items").innerHTML = menu
-    .map((food) => 
-      `          <section class="item">
+function addMenuLists(itemList = []) {
+  document.getElementById("menu-items").innerHTML = itemList
+    .map(
+      (food) =>
+        `          <section class="item">
 <img src="${food.img}" />
 <div class="item-desc">
   <div class="top-item">
@@ -119,7 +121,55 @@ function addMenuLists() {
     .join(" ");
 }
 
+function setActiveClass(button) {
+  if (button) {
+    document.querySelectorAll("button").forEach((b) => {
+      b.classList.remove("active-btn");
+    });
+    button.classList.add("active-btn");
+  }
+}
+
+function addCategoryButtons() {
+  let categoryLists = ["all"];
+  menu.forEach(function (item) {
+    if (item && item.category && !categoryLists.includes(item.category)) {
+      categoryLists.push(item.category);
+    }
+  });
+
+  const buttons = categoryLists.map(
+    (cat) =>
+      `<button class="button  ${
+        cat === "all" ? "active-btn" : " "
+      } "   category-id="${cat}"   type="button">${cat}</button>`
+  );
+
+  if (buttons.length > 0) {
+    document.getElementById("menu-categories").innerHTML = buttons.join(" ");
+  }
+
+  document.querySelectorAll("button").forEach((item) => {
+    const categoryType = item.getAttribute("category-id");
+
+    item.addEventListener("click", function () {
+      setActiveClass(item);
+      item.classList.add("active-btn");
+      if (categoryType === "all") {
+        addMenuLists(menu);
+        return;
+      }
+
+      const filteredList = menu.filter(
+        (item) => item.category === categoryType
+      );
+
+      addMenuLists(filteredList);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   addCategoryButtons();
-  addMenuLists();
+  addMenuLists(menu);
 });

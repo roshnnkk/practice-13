@@ -4,11 +4,3 @@
 }
 
 
-@mixin media {
-  @media screen and (max-width:1256px){
-    .wrapper .right-box{
-      display: none;
-    }
-    
-  }
-}

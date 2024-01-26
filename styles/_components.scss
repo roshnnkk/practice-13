@@ -4,7 +4,7 @@
   background-color: $bg_color;
   position: relative;
   .right-box {
-    min-height: 150vh;
+    min-height: 180vh;
     width: 30%;
     background-color: $bg_color_darker;
     position: absolute;
@@ -46,7 +46,7 @@
   width: 70%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 20px 20px;
+  padding: 20px 40px;
   grid-gap: 4rem;
 
   .item {
@@ -54,7 +54,7 @@
 
     display: grid;
     grid-gap: 10px;
-    grid-template-columns:30% calc(100% - 30% - 10px);
+    grid-template-columns: 30% calc(100% - 30% - 10px);
     grid-template-rows: 150px;
 
     align-items: center;
@@ -82,4 +82,9 @@
     border-bottom: 1px solid #614124;
     padding-bottom: 0.2rem;
   }
+}
+
+.active-btn {
+  background-color: $text_color;
+  color: #fcffe7;
 }

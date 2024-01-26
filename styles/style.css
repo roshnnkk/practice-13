@@ -29,12 +29,12 @@ h3 {
 
 .wrapper {
   width: 100%;
-  min-height: 150vh;
+  min-height: 180vh;
   background-color: #fcffe7;
   position: relative;
 }
 .wrapper .right-box {
-  min-height: 150vh;
+  min-height: 180vh;
   width: 30%;
   background-color: #e0d8b0;
   position: absolute;
@@ -75,7 +75,7 @@ h3 {
   width: 70%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 20px 20px;
+  padding: 20px 40px;
   grid-gap: 4rem;
 }
 .container-lists .item {
@@ -109,34 +109,35 @@ h3 {
   padding-bottom: 0.2rem;
 }
 
+.active-btn {
+  background-color: #614124;
+  color: #fcffe7;
+}
 
-@media screen and (max-width:1256px){
-  .wrapper .right-box{
+@media screen and (max-width: 1256px) {
+  .wrapper .right-box {
     display: none;
   }
-  .container-btn{
+  .container-btn {
     width: 100%;
   }
-  .container-lists{
+  .container-lists {
     width: 100%;
   }
 }
 
-@media screen and (max-width:768px) {
-  .container-lists{
+@media screen and (max-width: 768px) {
+  .container-lists {
     grid-template-columns: 100%;
   }
 }
 
-
-
-
-@media screen and (max-width:375px) {
-  .container-btn{
+@media screen and (max-width: 375px) {
+  .container-btn {
     flex-wrap: wrap;
   }
 
-    .container-lists .item{
-    grid-template-columns: repeat(1,1fr);
+  .container-lists .item {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

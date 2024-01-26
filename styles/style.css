@@ -128,9 +128,15 @@ h3 {
   }
 }
 
+
+
+
 @media screen and (max-width:375px) {
   .container-btn{
     flex-wrap: wrap;
   }
-  
+
+    .container-lists .item{
+    grid-template-columns: repeat(1,1fr);
+  }
 }
